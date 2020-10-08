@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
     <Topnav class="nav" />
-    <div class="content" v-if="menuVisible">
-      <aside>
+    <div class="content">
+      <aside v-if="menuVisible">
         <h2>组件列表</h2>
         <ol>
           <li>
