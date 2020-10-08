@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Switch :value="y" @input="y = $event" />
+    <Switch v-model:value="checked" />
   </div>
 </template> 
 
@@ -12,8 +12,8 @@ export default {
     Switch
   },
   setup() {
-    const y = ref(false);
-    return { y };
+    const checked = ref(false);
+    return { checked };
   }
 };
 </script>
