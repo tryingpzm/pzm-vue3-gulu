@@ -1,38 +1,50 @@
 <template>
-<div class="topnav">
-    <div class="logo">LOGO</div>
+  <div class="topnav">
+    <div class="logo" @click="toggleMenuVisible">LOGO</div>
     <ul class="menu">
-        <li>菜单1</li>
-        <li>菜单2</li>
+      <li>菜单1</li>
+      <li>菜单2</li>
     </ul>
-</div>
+  </div>
 </template>
 
 <script lang="ts">
+import { inject, Ref } from "vue";
 export default {
+  setup(props) {
+    const menuVisible = inject<Ref>("menuVisible");
+    console.log(menuVisible.value);
+    const toggleMenuVisible = () => {
+      menuVisible.value = !menuVisible.value;
+    };
 
-}
+    return {
+      toggleMenuVisible
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .topnav {
-    background: pink;
+  background: pink;
+  display: flex;
+  padding: 16px;
+  position: relative;
+  z-index: 10;
+  > .logo {
+    max-width: 6em;
+    margin-right: auto;
+  }
+
+  > .menu {
     display: flex;
-    padding: 16px;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 
-    >.logo {
-        max-width: 6em;
-        margin-right: auto;
+    > li {
+      margin: 0 1em;
     }
-
-    >.menu {
-        display: flex;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-
-        >li {
-            margin: 0 1em;
-        }
-    }
+  }
 }
 </style>
