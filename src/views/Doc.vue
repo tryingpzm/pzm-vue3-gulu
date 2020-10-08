@@ -32,9 +32,7 @@ export default {
     Topnav
   },
   setup(props) {
-    console.log("33");
     const menuVisible = inject<Ref<Boolean>>("menuVisible");
-    console.log("Doc的" + menuVisible.value);
 
     return {
       menuVisible

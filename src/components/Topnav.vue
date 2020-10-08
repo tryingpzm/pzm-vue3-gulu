@@ -13,7 +13,6 @@ import { inject, Ref } from "vue";
 export default {
   setup(props) {
     const menuVisible = inject<Ref>("menuVisible");
-    console.log(menuVisible.value);
     const toggleMenuVisible = () => {
       menuVisible.value = !menuVisible.value;
     };
