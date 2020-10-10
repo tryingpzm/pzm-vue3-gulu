@@ -1,19 +1,24 @@
 <template>
   <div>
-    <div v-for="demoItem in demoArr" :key="demoItem">Button 的文档</div>
+    <Button>按钮</Button>
+    <Button theme="button">按钮</Button>
+    <Button theme="text">按钮</Button>
+    <Button theme="link">按钮</Button>
   </div>
 </template> 
 
 <script lang="ts">
+import Button from "../lib/Button.vue";
 export default {
+  components: {
+    Button
+  },
   setup() {
-    let demoArr = [];
-    demoArr.length = 100;
-    for (let i = 0; i < demoArr.length; i++) {
-      demoArr[i] = i;
+    function dealClick() {
+      console.log("dianjile");
     }
     return {
-      demoArr
+      dealClick
     };
   }
 };
